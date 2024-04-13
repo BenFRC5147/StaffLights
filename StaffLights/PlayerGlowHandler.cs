@@ -38,10 +38,10 @@ public class PlayerGlowHandler : MonoBehaviour
         if (_player.Role == RoleTypeId.Tutorial && _player.IsGodModeEnabled)
         {
             _glowLight.Intensity = config.Intensity;
-            Log.Debug($"Set {_player.Nickname}'s light to {config.Intensity} as they are a tutorial in God Mode");
+            Log.Debug($"Set {_player.Nickname}'s light to {config.Intensity} as they are a Tutorial in God Mode");
         } else
         {
-            Log.Debug($"Set {_player.Nickname}'s light to 0 as they aren't a tutorial in God Mode");
+            Log.Debug($"Set {_player.Nickname}'s light to 0 as they aren't a Tutorial in God Mode");
             _glowLight.Intensity = 0f;
         }
 
