@@ -17,16 +17,18 @@ public class PlayerGlowHandler : MonoBehaviour
         _player = Player.Get(gameObject);
     }
 
-    void Start(Config config)
+    void Start()
     {
+        Config config = new Config();
         _glowLight = Light.Create(_player.Position, null, null, true, config.Color);
         _glowLight.ShadowEmission = false;
         _glowLight.Range = config.Range;
         _glowLight.Intensity = 0f;
     }
 
-    void Update(Config config)
+    void Update()
     {
+        Config config = new Config();
         if (_player == null || _glowLight == null)
         {
             Destroy(this);

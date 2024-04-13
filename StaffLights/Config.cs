@@ -18,12 +18,12 @@ namespace StaffLights
         public bool Debug { get; set; }
 
         [Description("Visible range of the light:")]
-        public float Range { get; set; }
+        public float Range { get; set; } = 30f;
 
         [Description("Visible intensity of the light:")]
-        public float Intensity { get; set; } = 8.75f;
+        public float Intensity { get; set; } = 18.75f;
 
         [Description("Visible color of the light:")]
-        public Color Color { get; set; } = Color.yellow;
+        public Color Color { get; set; } = Color.cyan;
     }
 }
