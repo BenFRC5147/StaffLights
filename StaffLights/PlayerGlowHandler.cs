@@ -20,15 +20,14 @@ public class PlayerGlowHandler : MonoBehaviour
     void Start()
     {
         Config config = new Config();
-        _glowLight = Light.Create(_player.Position, null, null, true, config.Color);
+        _glowLight = Light.Create(_player.Position, null, null, true, StaffLights.Instance.Config.Color);
         _glowLight.ShadowEmission = false;
-        _glowLight.Range = config.Range;
+        _glowLight.Range = StaffLights.Instance.Config.Range;
         _glowLight.Intensity = 0f;
     }
 
     void Update()
     {
-        Config config = new Config();
         if (_player == null || _glowLight == null)
         {
             Destroy(this);
@@ -37,11 +36,11 @@ public class PlayerGlowHandler : MonoBehaviour
 
         if (_player.Role == RoleTypeId.Tutorial && _player.IsGodModeEnabled)
         {
-            _glowLight.Intensity = config.Intensity;
-            Log.Debug($"Set {_player.Nickname}'s light to {config.Intensity} as they are a Tutorial in God Mode");
+            _glowLight.Intensity = StaffLights.Instance.Config.Intensity;
+            Log.Debug($"Set {_player.Nickname}'s light to {StaffLights.Instance.Config.Intensity} as they are a tutorial in God Mode");
         } else
         {
-            Log.Debug($"Set {_player.Nickname}'s light to 0 as they aren't a Tutorial in God Mode");
+            Log.Debug($"Set {_player.Nickname}'s light to 0 as they aren't a tutorial in God Mode");
             _glowLight.Intensity = 0f;
         }
 
