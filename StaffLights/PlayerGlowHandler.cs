@@ -19,10 +19,9 @@ public class PlayerGlowHandler : MonoBehaviour
 
     void Start()
     {
-        Config config = new Config();
-        _glowLight = Light.Create(_player.Position, null, null, true, config.Color);
+        _glowLight = Light.Create(_player.Position, null, null, true, StaffLights.Instance.Config.Color);
         _glowLight.ShadowEmission = false;
-        _glowLight.Range = config.Range;
+        _glowLight.Range = StaffLights.Instance.Config.Range;
         _glowLight.Intensity = 0f;
     }
 
